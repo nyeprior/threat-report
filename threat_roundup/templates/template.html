@@ -1,0 +1,40 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title><!--Title--></title>
+	{%- include 'header.html' %}
+	</header>
+
+	<main role="main">
+    <div class="row-fluid">
+<div class="container-fluid pb-3 mt-5 pl-5 col-md-10 col-md-offset-1">
+  <div class="span4 pt-5 mt-5">
+		<h2><!--Title--></h2>
+	</div>
+</div>
+<div class="container-fluid pb-3 mt-5 pl-5 col-md-10 col-md-offset-1">
+	<div class="span4 pt-3 mt-3 mb-3 pb-3 pl-3 rounded bg-light">
+		<!--Content-->
+		</div>
+</div>
+</div>
+</main>
+<footer class="footer">
+  <div class="container-fluid">
+    {%- include 'footer.html' %}
+  </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script>
+  $(document).ready(function(){
+$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+</body>
+
+</html>

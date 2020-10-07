@@ -1,0 +1,4 @@
+# Project specific files
+debug/
+newsletter.txt
+__pycache__

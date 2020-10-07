@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  nginx:
+    build:
+      context: .
+    container_name: nginx_reverseproxy
+    restart: always
+    volumes:
+            - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - docker-network
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - threat_newsletter
+
+  threat_newsletter:
+    container_name: threat_roundup
+    restart: always
+    build: ./threat_roundup
+    volumes:
+      - ./threat_roundup:/opt/app/
+    networks:
+      docker-network:
+        aliases:
+          - threat_roundup
+    command: "gunicorn3 -b :443 main:web_app --log-level debug "
+
+networks:
+    docker-network:
